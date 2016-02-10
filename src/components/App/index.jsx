@@ -15,7 +15,7 @@ export default class App extends Component {
 			sprite: 'img/explosion.png',
 			hTiles: 4,
 			vTiles: 4,
-			animationSpeed: 200,
+			animationSpeed: 75,
 			tileIndex: 0
 		};
 		this.state.fire = {
@@ -23,7 +23,7 @@ export default class App extends Component {
 			sprite: 'img/fire.jpg',
 			hTiles: 8,
 			vTiles: 8,
-			animationSpeed: 75,
+			animationSpeed: 40,
 			tileIndex: 0
 		};
 		this.state.runner = {
@@ -31,10 +31,11 @@ export default class App extends Component {
 			sprite: 'img/run.png',
 			hTiles: 10,
 			vTiles: 1,
-			animationSpeed: 75,
+			animationSpeed: 20,
 			tileIndex: 0
 		};
 		this._onAnimate = this._onAnimate.bind(this);
+		this._updateTile = this._updateTile.bind(this);
 	}
 
 	componentDidMount() {
@@ -50,14 +51,14 @@ export default class App extends Component {
 
 	_onAnimate() {
 		this.stats.update();
-		['explosion', 'fire', 'runner'].forEach((tile) => {
-			const newTileState = this._updateTile(this.state[tile], tile);
+		['explosion', 'fire', 'runner'].forEach((tileName) => {
+			const newTileState = this._updateTile(tileName);
 			this.setState(newTileState);
 		});
 	}
 
-	_updateTile(tile, tileName) {
-		const newTile = Object.assign({}, tile);
+	_updateTile(tileName) {
+		const newTile = Object.assign({}, this.state[tileName]);
 		if (!newTile.lastAnimate) {
 			newTile.lastAnimate = new Date();
 		}
@@ -108,7 +109,7 @@ export default class App extends Component {
 							hTiles={this.state.explosion.hTiles}
 							vTiles={this.state.explosion.vTiles}
 							animationSpeed={this.state.explosion.animationSpeed}
-							tileIndex={this.state.fire.tileIndex}
+							tileIndex={this.state.explosion.tileIndex}
 						/>
 						<Target
 							position={this.state.runner.position}
@@ -116,7 +117,7 @@ export default class App extends Component {
 							hTiles={this.state.runner.hTiles}
 							vTiles={this.state.runner.vTiles}
 							animationSpeed={this.state.runner.animationSpeed}
-							tileIndex={this.state.fire.tileIndex}
+							tileIndex={this.state.runner.tileIndex}
 						/>
 					</scene>
 				</React3>

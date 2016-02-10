@@ -24,9 +24,11 @@ export default class Target extends Component {
 						wrapT={THREE.RepeatWrapping}
 						repeat={this.repeat}
 						offset={offset}
+						transparent
+						opacity={0.5}
 						anisotropy={16}
 					/>
-					<meshBasicMaterial resourceId="material" side={THREE.DoubleSide} >
+					<meshBasicMaterial resourceId="material" color="white" transparent >
 						<textureResource resourceId="texture" />
 					</meshBasicMaterial>
 					<planeGeometry resourceId="targetGeometry" width={50} height={50} />
