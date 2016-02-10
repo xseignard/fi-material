@@ -83,7 +83,9 @@ export default class App extends Component {
 					mainCamera="camera"
 					width={width}
 					height={height}
-					clearColor="white"
+					clearColor="#fff"
+					alpha
+					clearAlpha={0}
 					onAnimate={this._onAnimate}
 				>
 					<scene>

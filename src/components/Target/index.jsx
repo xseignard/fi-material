@@ -24,8 +24,6 @@ export default class Target extends Component {
 						wrapT={THREE.RepeatWrapping}
 						repeat={this.repeat}
 						offset={offset}
-						transparent
-						opacity={0.5}
 						anisotropy={16}
 					/>
 					<meshBasicMaterial resourceId="material" color="white" transparent >

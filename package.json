@@ -42,7 +42,7 @@
     "react": "^0.14.6",
     "react-addons-test-utils": "^0.14.6",
     "react-dom": "^0.14.6",
-    "react-three-renderer": "0.0.18-alpha",
+    "react-three-renderer": "0.0.19-alpha",
     "stats.js": "^1.0.0",
     "style-loader": "^0.13.0",
     "three": "^0.73.2",
