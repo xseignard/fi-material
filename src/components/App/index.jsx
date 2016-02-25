@@ -71,62 +71,73 @@ export default class App extends Component {
 
 		return (
 			<div ref="container">
-				<React3
-					mainCamera="camera"
-					width={width}
-					height={height}
-					clearColor="#fff"
-					alpha
-					clearAlpha={0}
-					onAnimate={this._onAnimate}
-				>
-					<scene>
-						<perspectiveCamera
-							name="camera"
-							fov={75}
-							aspect={width / height}
-							near={0.1}
-							far={1000}
-							position={this.cameraPosition}
-						/>
-						<resources>
-							<texture
-								resourceId="texture"
-								url="img/target_bottom2.png"
-								wrapS={THREE.RepeatWrapping}
-								wrapT={THREE.RepeatWrapping}
+				<div id="video">
+					<video
+						src="video/play.mp4"
+						loop
+						autoPlay
+						preload="auto"
+					>
+					</video>
+				</div>
+				<div id="three">
+					<React3
+						mainCamera="camera"
+						width={width}
+						height={height}
+						clearColor="#fff"
+						alpha
+						clearAlpha={0}
+						onAnimate={this._onAnimate}
+					>
+						<scene>
+							<perspectiveCamera
+								name="camera"
+								fov={75}
+								aspect={width / height}
+								near={0.1}
+								far={1000}
+								position={this.cameraPosition}
 							/>
-							<meshBasicMaterial alphaTest={0.175} resourceId="material">
-								<textureResource resourceId="texture" />
-							</meshBasicMaterial>
-							<planeGeometry
-								resourceId="geometry"
-								width={128}
-								height={128}
+							<resources>
+								<texture
+									resourceId="texture"
+									url="img/target_bottom.png"
+									wrapS={THREE.RepeatWrapping}
+									wrapT={THREE.RepeatWrapping}
+								/>
+								<meshBasicMaterial alphaTest={0.175} resourceId="material">
+									<textureResource resourceId="texture" />
+								</meshBasicMaterial>
+								<planeGeometry
+									resourceId="geometry"
+									width={128}
+									height={128}
+								/>
+							</resources>
+							<mesh position={new THREE.Vector3(-300, 0, 0)}>
+								<geometryResource resourceId="geometry" />
+								<materialResource resourceId="material" />
+							</mesh>
+							<Target
+								position={this.state.blue.position}
+								sprite={this.state.blue.sprite}
+								hTiles={this.state.blue.hTiles}
+								vTiles={this.state.blue.vTiles}
+								animationSpeed={this.state.blue.animationSpeed}
+								tileIndex={this.state.blue.tileIndex}
 							/>
-						</resources>
-						<mesh position={new THREE.Vector3(-300, 0, 0)}>
-							<geometryResource resourceId="geometry" />
-							<materialResource resourceId="material" />
-						</mesh>
-						<Target
-							position={this.state.blue.position}
-							sprite={this.state.blue.sprite}
-							hTiles={this.state.blue.hTiles}
-							vTiles={this.state.blue.vTiles}
-							animationSpeed={this.state.blue.animationSpeed}
-							tileIndex={this.state.blue.tileIndex}
-						/>
-						<Target
-							position={this.state.violet.position}
-							sprite={this.state.violet.sprite}
-							hTiles={this.state.violet.hTiles}
-							vTiles={this.state.violet.vTiles}
-							animationSpeed={this.state.violet.animationSpeed}
-							tileIndex={this.state.violet.tileIndex}
-						/>
-					</scene>
-				</React3>
+							<Target
+								position={this.state.violet.position}
+								sprite={this.state.violet.sprite}
+								hTiles={this.state.violet.hTiles}
+								vTiles={this.state.violet.vTiles}
+								animationSpeed={this.state.violet.animationSpeed}
+								tileIndex={this.state.violet.tileIndex}
+							/>
+						</scene>
+					</React3>
+				</div>
 			</div>
 		);
 	}
