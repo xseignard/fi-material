@@ -20,9 +20,9 @@ export default class App extends Component {
 		};
 		this.state.violet = {
 			position: new THREE.Vector3(300, 0, 0),
-			sprite: 'img/violet.png',
+			sprite: 'img/blue2.png',
 			hTiles: 8,
-			vTiles: 10,
+			vTiles: 9,
 			animationSpeed: 16,
 			tileIndex: 0
 		};
