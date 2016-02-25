@@ -29,7 +29,7 @@ export default class Target extends Component {
 					<meshBasicMaterial resourceId="material" color="white" transparent >
 						<textureResource resourceId="texture" />
 					</meshBasicMaterial>
-					<planeGeometry resourceId="targetGeometry" width={50} height={50} />
+					<planeGeometry resourceId="targetGeometry" width={256} height={256} />
 				</resources>
 				<mesh position={this.props.position}>
 					<geometryResource resourceId="targetGeometry" />

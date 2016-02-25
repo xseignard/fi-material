@@ -10,28 +10,20 @@ export default class App extends Component {
 		this.cameraPosition = new THREE.Vector3(0, 0, 500);
 
 		this.state = {};
-		this.state.explosion = {
-			position: new THREE.Vector3(-100, 0, 0),
-			sprite: 'img/explosion.png',
-			hTiles: 4,
-			vTiles: 4,
-			animationSpeed: 75,
-			tileIndex: 0
-		};
-		this.state.fire = {
-			position: new THREE.Vector3(0, 0, 0),
-			sprite: 'img/fire.jpg',
+		this.state.blue = {
+			position: new THREE.Vector3(-300, 0, 0),
+			sprite: 'img/blue.png',
 			hTiles: 8,
-			vTiles: 8,
-			animationSpeed: 40,
+			vTiles: 10,
+			animationSpeed: 16,
 			tileIndex: 0
 		};
-		this.state.runner = {
-			position: new THREE.Vector3(100, 0, 0),
-			sprite: 'img/run.png',
-			hTiles: 10,
-			vTiles: 1,
-			animationSpeed: 20,
+		this.state.violet = {
+			position: new THREE.Vector3(300, 0, 0),
+			sprite: 'img/violet.png',
+			hTiles: 8,
+			vTiles: 10,
+			animationSpeed: 16,
 			tileIndex: 0
 		};
 		this._onAnimate = this._onAnimate.bind(this);
@@ -51,7 +43,7 @@ export default class App extends Component {
 
 	_onAnimate() {
 		this.stats.update();
-		['explosion', 'fire', 'runner'].forEach((tileName) => {
+		['blue', 'violet'].forEach((tileName) => {
 			const newTileState = this._updateTile(tileName);
 			this.setState(newTileState);
 		});
@@ -98,28 +90,20 @@ export default class App extends Component {
 							position={this.cameraPosition}
 						/>
 						<Target
-							position={this.state.fire.position}
-							sprite={this.state.fire.sprite}
-							hTiles={this.state.fire.hTiles}
-							vTiles={this.state.fire.vTiles}
-							animationSpeed={this.state.fire.animationSpeed}
-							tileIndex={this.state.fire.tileIndex}
+							position={this.state.blue.position}
+							sprite={this.state.blue.sprite}
+							hTiles={this.state.blue.hTiles}
+							vTiles={this.state.blue.vTiles}
+							animationSpeed={this.state.blue.animationSpeed}
+							tileIndex={this.state.blue.tileIndex}
 						/>
 						<Target
-							position={this.state.explosion.position}
-							sprite={this.state.explosion.sprite}
-							hTiles={this.state.explosion.hTiles}
-							vTiles={this.state.explosion.vTiles}
-							animationSpeed={this.state.explosion.animationSpeed}
-							tileIndex={this.state.explosion.tileIndex}
-						/>
-						<Target
-							position={this.state.runner.position}
-							sprite={this.state.runner.sprite}
-							hTiles={this.state.runner.hTiles}
-							vTiles={this.state.runner.vTiles}
-							animationSpeed={this.state.runner.animationSpeed}
-							tileIndex={this.state.runner.tileIndex}
+							position={this.state.violet.position}
+							sprite={this.state.violet.sprite}
+							hTiles={this.state.violet.hTiles}
+							vTiles={this.state.violet.vTiles}
+							animationSpeed={this.state.violet.animationSpeed}
+							tileIndex={this.state.violet.tileIndex}
 						/>
 					</scene>
 				</React3>
