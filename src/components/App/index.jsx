@@ -89,6 +89,26 @@ export default class App extends Component {
 							far={1000}
 							position={this.cameraPosition}
 						/>
+						<resources>
+							<texture
+								resourceId="texture"
+								url="img/target_bottom2.png"
+								wrapS={THREE.RepeatWrapping}
+								wrapT={THREE.RepeatWrapping}
+							/>
+							<meshBasicMaterial alphaTest={0.175} resourceId="material">
+								<textureResource resourceId="texture" />
+							</meshBasicMaterial>
+							<planeGeometry
+								resourceId="geometry"
+								width={128}
+								height={128}
+							/>
+						</resources>
+						<mesh position={new THREE.Vector3(-300, 0, 0)}>
+							<geometryResource resourceId="geometry" />
+							<materialResource resourceId="material" />
+						</mesh>
 						<Target
 							position={this.state.blue.position}
 							sprite={this.state.blue.sprite}
